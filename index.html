@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="matrix.js"></script>
+    <script src="table.js"></script>
+  </head>
+  <body>
+    <div class="sidebar">
+      <a href="#">Home</a>
+      <a href="#">Determinent</a>
+    </div>
+    <div class="app">
+      <!-- Slider -->
+      <input
+        type="range"
+        min="2"
+        max="5"
+        value="1"
+        class="slider"
+        id="slider"
+        oninput="changeInputTable()"
+      />
+      <p id="table_size">2</p>
+      <!-- Table -->
+      <table id="input">
+        <tr>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+        </tr>
+        <tr>
+          <td contenteditable></td>
+          <td contenteditable></td>
+        </tr>
+      </table>
+      <!-- Calculate btn -->
+      <input type="button" value="Calculate" onclick="calculate()" />
+
+      <!-- Output -->
+      <br />
+      <h3>Output</h3>
+      <div id="output"></div>
+    </div>
+  </body>
+</html>
