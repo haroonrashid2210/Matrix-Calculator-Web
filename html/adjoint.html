@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Adjoint</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <script src="../js/adjoint.js"></script>
     <script src="../js/matrix.js"></script>
     <script src="../js/table.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/adjoint.js"></script>
   </head>
 
   <body>
@@ -17,12 +17,12 @@
       <ul>
         <li><a href="./index.html">Home</a></li>
         <li><a href="./determinent.html">Determinent</a></li>
-        <li class="active"><a href="./inverse.html">Inverse</a></li>
-        <li><a href="./adjoint.html">Adjoint</a></li>
+        <li><a href="./inverse.html">Inverse</a></li>
+        <li class="active"><a href="./adjoint.html">Adjoint</a></li>
       </ul>
     </nav>
     <div class="app">
-      <h2>INVERSE</h2>
+      <h2>DETERMINENT</h2>
       <!-- Slider -->
       <input
         type="range"
@@ -46,7 +46,7 @@
         </tr>
       </table>
       <!-- Calculate btn -->
-      <input type="button" value="Calculate" onclick="calculate('inverse')" />
+      <input type="button" value="Calculate" onclick="calculate('adjoint')" />
 
       <!-- Output -->
       <br />

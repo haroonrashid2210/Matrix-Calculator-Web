@@ -1,13 +1,40 @@
 function calculate(type) {
   // clear previous output before further processing
   deleteAllChilds("output");
-  if (type === "determinent") {
-    let matrix = getTableMatrix("input");
-    let valid = isMatrixValid(matrix);
-    if (valid) {
-      displayOutput(determinant(matrix), "value");
+  switch (type) {
+    case "determinent": {
+      let matrix = getTableMatrix("input");
+      let valid = isMatrixValid(matrix);
+      if (valid) {
+        displayOutput(determinant(matrix), "string");
+      }
+      break;
     }
-  } else console.log("Under construction");
+    case "adjoint": {
+      let matrix = getTableMatrix("input");
+      let valid = isMatrixValid(matrix);
+      if (valid) {
+        displayOutput(adjoint(matrix), "matrix");
+      }
+      break;
+    }
+    case "inverse": {
+      let matrix = getTableMatrix("input");
+      let valid = isMatrixValid(matrix);
+      if (valid) {
+        let det = determinant(matrix);
+        if (det === 0) {
+          displayOutput("Determinant = 0, Inverse not possible", "string");
+          break;
+        }
+        displayOutput(matrixMulNumber(adjoint(matrix), det), "matrix");
+      }
+      break;
+    }
+    default: {
+      displayOutput("Under construction", "string");
+    }
+  }
 }
 
 //////////////////////
@@ -64,7 +91,7 @@ function displayOutput(data, type) {
       output.appendChild(p);
       break;
     }
-    case "value": {
+    case "string": {
       output.innerText = data;
       break;
     }
@@ -75,7 +102,7 @@ function displayOutput(data, type) {
   }
 }
 
-// creates a HTML table component with data
+// creates a HTML table component with data for output use
 function createTableComponent(data) {
   let row_length = data.length;
   let col_length = data[0].length;
@@ -84,9 +111,23 @@ function createTableComponent(data) {
     let table_row = document.createElement("tr");
     for (let c = 0; c < col_length; c++) {
       let table_data = document.createElement("td");
+      table_data.innerText = data[r][c];
       table_row.appendChild(table_data);
     }
     table.appendChild(table_row);
   }
   return table;
+}
+
+// multiply 2 matrices
+function matrixMulMatrix(matrix1, matrix2) {}
+
+// multiply matrix with number
+function matrixMulNumber(matrix, number) {
+  for (let r = 0; r < matrix.length; r++) {
+    for (let c = 0; c < matrix[0].length; c++) {
+      matrix[r][c] = matrix[r][c] * number;
+    }
+  }
+  return matrix;
 }
