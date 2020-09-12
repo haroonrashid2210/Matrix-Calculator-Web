@@ -5,14 +5,9 @@ function changeInputTable() {
   createTable(slider.value);
 }
 
-// delete all the child nodes
-function deleteChild(elementId) {
-  var element = (document.getElementById(elementId).innerHTML = "");
-}
-
 // create square table of size
 function createTable(size) {
-  deleteChild("input");
+  deleteAllChilds("input");
   var table = document.getElementById("input");
   for (let i = 0; i < size; i++) {
     var row = document.createElement("tr");

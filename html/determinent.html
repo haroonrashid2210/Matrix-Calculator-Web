@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/matrix.js"></script>
+    <script src="../js/table.js"></script>
+    <script src="../js/main.js"></script>
+  </head>
+
+  <body>
+    <!-- Sidebar  -->
+    <nav>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li class="active"><a href="./determinent.html">Determinent</a></li>
+        <li><a href="./inverse.html">Inverse</a></li>
+      </ul>
+    </nav>
+    <div class="app">
+      <h2>DETERMINENT</h2>
+      <!-- Slider -->
+      <input
+        type="range"
+        min="2"
+        max="5"
+        value="1"
+        class="slider"
+        id="slider"
+        oninput="changeInputTable()"
+      />
+      <p id="table_size">2</p>
+      <!-- Table -->
+      <table id="input">
+        <tr>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+        </tr>
+        <tr>
+          <td contenteditable></td>
+          <td contenteditable></td>
+        </tr>
+      </table>
+      <!-- Calculate btn -->
+      <input
+        type="button"
+        value="Calculate"
+        onclick="calculate('determinent')"
+      />
+
+      <!-- Output -->
+      <br />
+      <h3>Output</h3>
+      <div id="output"></div>
+    </div>
+  </body>
+</html>
